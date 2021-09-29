@@ -1,0 +1,129 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+$btn-w: 250px;
+$btn-h: 76px;
+
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #1c1624;
+    background: url(https://images.unsplash.com/photo-1530508777238-14544088c3ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTIzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60);
+}
+
+.thank {
+    opacity: 0;
+    color: #fae428;
+    font-size: 1.5em;
+}
+
+.button {
+    position: static;
+    margin: 0 auto;
+    width: 250px;
+    border: 1px solid #fae428;
+    color: #fae428;
+    border-radius: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.3em;
+    cursor: pointer;
+    height: $btn-h;
+    opacity: 1;
+    transition: all 0.2s ease;
+    line-height: 30px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    perspective-origin: 49% 50%;
+    display: flex;
+    justify-content: center;
+}
+
+{
+    transition: all 0.2s ease;
+    user-select: none;
+    line-height: 33px;
+    position: absolute;
+}
+
+}
+
+// Stars
+
+@function generateStart($n) {
+    $value: "#{random(2000)}px #{random(2000)}px rgba(165,190,195,#{random(10)/10})";
+
+    @for $i from 0 through $n {
+        $value: "#{$value} , #{random(2000)}px #{random(2000)}px rgba(184,174,131,#{random(10)/10})";
+    }
+
+    @return unquote($value);
+}
+
+$shadows-small: generateStart(500);
+$shadows-medium: generateStart(400);
+$shadows-big: generateStart(300);
+
+#stars {
+    width: 2px;
+    height: 2px;
+    box-shadow: $shadows-small;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 2s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#stars2 {
+    width: 3px;
+    height: 3px;
+    box-shadow: $shadows-medium;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 4s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#stars3 {
+    width: 4px;
+    height: 4px;
+    box-shadow: $shadows-big;
+    background: transparent;
+    border-radius: 100%;
+    animation: blink 3s infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+h1, h2{
+    color: #fff;
+}
